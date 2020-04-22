@@ -267,7 +267,7 @@ while IFS= read -r line; do
             fi
 
             if [ $taskTypeL = "sub-heading" ] || [ $taskTypeL = "normal" ]; then
-                echo "\\subfile{tasks/task${taskFilename[$counter]}}" >> "$fullFilename"
+                echo "\\input{tasks/task${taskFilename[$counter]}}" >> "$fullFilename"
                 written=true
             fi
 
