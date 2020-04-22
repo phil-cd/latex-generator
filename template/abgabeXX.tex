@@ -1,6 +1,10 @@
 \documentclass[a4paper]{article}
 %\documentclass{scrartcl}
 
+% comment the following line in order to switch language 
+% of sheet to english
+\newcommand{\GERMAN}{}
+
 \usepackage[utf8]{inputenc}
 \usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
 
@@ -118,10 +122,14 @@
 \newcommand{\studentA}{\textbf{Max Mustermann} -- 371234}
 \newcommand{\studentB}{\textbf{Jane Doe} -- 396789}
 
+% Commands should allow switching language of sheet easily
+\newcommand{\strAssignment}{\ifdefined\GERMAN Übungsblatt\else Assignment\fi}
+\newcommand{\strGroup}{\ifdefined\GERMAN Übungsgruppe\else Group\fi}
+
 %Left side of the Top header:
 \fancyhead[L]{
     \textbf{\courseName}\\ 
-    Übungsblatt \assignmentNr{} -- Übungsgruppe \groupNr{}
+    \strAssignment{} \assignmentNr{} -- \strGroup{} \groupNr{}
 }
 
 %Right side of the Top header:
@@ -142,7 +150,7 @@
     \studentB
   }
   \fancyhead[L]{\textbf{\courseName}\\
-  Übungsblatt \assignmentNr{} -- Übungsgruppe \groupNr{}}
+  \strAssignment{} \assignmentNr{} -- \strGroup{} \groupNr{}}
   \fancyfoot[C]{\thepage}
 }
 \renewcommand{\headrulewidth}{0pt}
